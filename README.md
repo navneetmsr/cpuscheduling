@@ -19,3 +19,15 @@ Advantages: Fair allocation of CPU time; good for time-sharing systems. <br>
 Disadvantages: Higher average turnaround time compared to SJN; performance heavily depends on the size of the time quantum (too small leads to overhead, too large makes it similar to FCFS). <br>
 
 These algorithms are used depending on system requirements, like throughput, fairness, and response time.
+
+# Contanarizing our application/program<br>
+# Step 1: Write a Dockerfile.<br>
+FROM openjdk:latest<br>
+WORKDIR /app<br>
+COPY . /app<br>
+RUN javac CPUScheduling.java<br>
+CMD ["java","CPUScheduling"]<br>
+
+openjdk
+
+# Step 2:
