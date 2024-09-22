@@ -3,6 +3,7 @@ Here’s a more detailed explanation of the mentioned CPU scheduling algorithms:
 
 # 1. First-Come, First-Served (FCFS)
 Working: Processes are executed in the order of their arrival in the ready queue.
+
 Advantages: Simple to implement; no starvation as each process eventually gets executed.
 Disadvantages: High average waiting time; the Convoy Effect can occur where shorter processes get stuck behind longer ones.
 # 2. Shortest Job Next (SJN)
