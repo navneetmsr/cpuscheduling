@@ -1,5 +1,5 @@
-# cpuscheduling
-Here’s a more detailed explanation of the mentioned CPU scheduling algorithms:
+# CPUScheduling
+Here’s a detailed explanation of the mentioned CPU scheduling algorithms:
 
 # 1. First-Come, First-Served (FCFS)
 Working: Processes are executed in the order of their arrival in the ready queue. <br>
@@ -18,9 +18,12 @@ Working: Each process is assigned a fixed time slice (called quantum) and is exe
 Advantages: Fair allocation of CPU time; good for time-sharing systems. <br>
 Disadvantages: Higher average turnaround time compared to SJN; performance heavily depends on the size of the time quantum (too small leads to overhead, too large makes it similar to FCFS). <br>
 
-These algorithms are used depending on system requirements, like throughput, fairness, and response time.
+These algorithms are used depending on system requirements, like throughput, fairness, and response time.<br>
+
+
 
 # Contanarizing our application/program<br>
+
 # Step 1: Write a Dockerfile.<br>
 FROM openjdk:latest<br>
 WORKDIR /app<br>
@@ -31,8 +34,31 @@ CMD ["java","CPUScheduling"]<br>
 -> openjdk is base image, used to run the application.<br>
 -> working directory is created in container , here app.<br>
 -> copy everything from current directory to working directory of container.<br>
--> run to compile the dockerfile<br>
--> finally run the application<br>
+-> run to compile the dockerfile.<br>
+-> finally run the application.<br>
 
 # Step 2: To build the docker image from dockerfile.<br>
  docker build -t scheduling .<br>
+
+# Step 3: To build container.<br>
+docker create --name my_container -p 8080:80 scheduling<br>
+
+# Step 3: To start container.<br>
+docker start my_container<br>
+
+# Step 4: To login to the DockerHub<br>
+docker login<br>
+
+# Step 5: Now, make a public repository in DockerHub.<br>
+here, navneetmsr/cpuscheduling<br>
+
+# Step 6: To tag the docker image to the repository created.<br>
+docker tag scheduling navneetmsr/cpuscheduling<br>
+
+# Step 7: To push the docker image to the repository created.<br>
+docker push navneetmsr/cpuscheduling<br>
+
+# Step 8: To run the Docker Image on container running on my local machine.<br>
+docker run -it scheduling<br>
+
+
