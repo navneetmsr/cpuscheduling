@@ -28,6 +28,11 @@ COPY . /app<br>
 RUN javac CPUScheduling.java<br>
 CMD ["java","CPUScheduling"]<br>
 
-openjdk
+-> openjdk is base image, used to run the application.<br>
+-> working directory is created in container , here app.<br>
+-> copy everything from current directory to working directory of container.<br>
+-> run to compile the dockerfile<br>
+-> finally run the application<br>
 
-# Step 2:
+# Step 2: To build the docker image from dockerfile.<br>
+ docker build -t scheduling .<br>
